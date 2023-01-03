@@ -15,7 +15,7 @@
 .form__paragraph {
     margin: 0;
     display: grid;
-    grid-gap: 3px;
+    grid-gap: 5px;
 }
 
 @media(max-width: 550px) {

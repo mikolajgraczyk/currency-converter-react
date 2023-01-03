@@ -1,4 +1,3 @@
-import Form from "../Form";
 import "./style.css";
 
 const Result = ({ result }) => (
