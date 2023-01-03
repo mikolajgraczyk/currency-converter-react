@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Section from './Section';
+import Form from './Section/Form';
+import Result from './Section/Result';
+import Header from './Section/Header';
+import { currencies } from './utils/currencies';
 
 function App() {
+
+  const [result, setResult] = useState();
+
+  const calculateResult = (firstSelectValue, secondSelectValue, firstInputValue) => {
+
+    const firstSelectedCurrency = currencies.find(({ short }) => short === firstSelectValue);
+    const secondSelectedCurrency = currencies.find(({ short }) => short === secondSelectValue);
+
+    const setRate = secondSelectedCurrency.rate / firstSelectedCurrency.rate;
+
+    setResult({
+      firstInputValue,
+      fromCurrency: firstSelectedCurrency.short,
+      calculated: (setRate * firstInputValue).toFixed(2),
+      toCurrency: secondSelectedCurrency.short,
+    })
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Section>
+        <Header title="Przelicznik walut" />
+        <Form
+          calculateResult={calculateResult}
+        />
+        <Result
+          result={result}
+        />
+      </Section>
   );
-}
+};
 
 export default App;
