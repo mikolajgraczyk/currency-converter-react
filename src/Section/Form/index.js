@@ -31,6 +31,7 @@ const Form = ({ calculateResult, theme }) => {
                     onChange={({ target }) => setFirstInputValue(target.value)}
                     value={firstInputValue}
                     placeholder="Wpisz kwotę"
+                    min={0}
                     required
                 />
                 <select
