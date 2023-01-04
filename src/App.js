@@ -22,7 +22,6 @@ function App() {
       calculated: (setRate * firstInputValue).toFixed(2),
       toCurrency: secondSelectedCurrency.short,
     })
-
   }
 
   return (
