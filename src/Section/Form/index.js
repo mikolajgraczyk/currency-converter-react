@@ -1,12 +1,12 @@
 import { currencies } from '../../utils/currencies';
 import { useState } from 'react';
-import arrows from './arrows.png';
+import arrowsLight from './arrowsLight.png';
+import arrowsDark from './arrowsDark.png';
 import './style.css';
 
-const Form = ({ calculateResult }) => {
+const Form = ({ calculateResult, theme }) => {
 
     const [firstInputValue, setFirstInputValue] = useState("");
-
     const [firstSelectValue, setFirstSelectValue] = useState("PLN");
     const [secondSelectValue, setSecondSelectValue] = useState("USD");
 
@@ -19,12 +19,10 @@ const Form = ({ calculateResult }) => {
     const onFormSubmit = (event) => {
         event.preventDefault();
         calculateResult(firstSelectValue, secondSelectValue, firstInputValue)
-        setFirstInputValue("")
     };
 
     return (
         <form className="form" onSubmit={onFormSubmit}>
-
             <span className="form__text">Wybierz pierwszą walutę:</span>
             <p className="form__paragraph">
                 <input
@@ -50,11 +48,14 @@ const Form = ({ calculateResult }) => {
                     )}
                 </select>
             </p>
-
             <p className="form__switchButtonParagraph">
-                <img src={arrows} width="30px" onClick={switchSelectValues}/>
+                <img 
+                src={theme === "light" ? arrowsDark : arrowsLight} 
+                alt="switch currencies button" 
+                width="30px" 
+                onClick={switchSelectValues}
+                />
             </p>
-
             <span className="form__text">Wybierz drugą walutę:</span>
             <p className="form__paragraph">
                 <select

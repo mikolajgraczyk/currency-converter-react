@@ -1,0 +1,28 @@
+.themeSwitch {
+    background-color: white;
+    position: fixed;
+    padding: 3px;
+    width: 27px;
+    height: 27px;
+    border: none;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+@media(max-width: 550px) {
+    .themeSwitch {
+        width: 23px;
+        height: 23px;
+        margin-left: -10px;
+        margin-top: -10px;
+    }
+}
+
+.themeSwitch:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.themeSwitch:active {
+    transform: scale(1.2);
+}

@@ -3,11 +3,13 @@ import Section from './Section';
 import Form from './Section/Form';
 import Result from './Section/Result';
 import Header from './Section/Header';
+import ThemeSwitch from './Section/ThemeSwitch';
 import { currencies } from './utils/currencies';
 
 function App() {
 
   const [result, setResult] = useState();
+  const [theme, setTheme] = useState();
 
   const calculateResult = (firstSelectValue, secondSelectValue, firstInputValue) => {
 
@@ -24,16 +26,26 @@ function App() {
     })
   }
 
+  const themeInfo = (theme) => {
+    setTheme(theme)
+  };
+
   return (
-      <Section>
-        <Header title="Przelicznik walut" />
-        <Form
-          calculateResult={calculateResult}
-        />
-        <Result
-          result={result}
-        />
-      </Section>
+    <Section
+    theme={theme}
+    >
+      <ThemeSwitch
+        themeInfo={themeInfo}
+      />
+      <Header title="Przelicznik walut" />
+      <Form
+        calculateResult={calculateResult}
+        theme={theme}
+      />
+      <Result
+        result={result}
+      />
+    </Section>
   );
 };
 
