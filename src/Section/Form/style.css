@@ -39,6 +39,7 @@
 .form__select {
     padding: 5px;
     border: none;
+    background-color: white;
     border-radius: 3px;
     transition: 0.2s;
 }
