@@ -1,12 +1,20 @@
 .themeSwitch {
-    background-color: white;
+    background: none;
     position: fixed;
-    padding: 3px;
     width: 27px;
     height: 27px;
     border: none;
     border-radius: 50%;
     transition: 0.3s;
+}
+
+.themeSwitch--image {
+    margin-left: -6px;
+    margin-top: -1px;
+    padding: 3px;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
 }
 
 @media(max-width: 550px) {

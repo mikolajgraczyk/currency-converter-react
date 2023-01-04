@@ -14,13 +14,14 @@ const ThemeSwitch = ({ themeInfo }) => {
     };
 
     return (
-        <img
-            src={theme === "dark" ? lightSun : darkSun}
-            alt="theme switch button"
-            className="themeSwitch"
-            onClick={themeToggle}
-            style={theme === "light" ? { backgroundColor: 'white' } : { backgroundColor: 'black'}}
-        />
+        <button className="themeSwitch" onClick={themeToggle}>
+            <img
+                src={theme === "dark" ? lightSun : darkSun}
+                alt="theme switch button"
+                className="themeSwitch--image"
+                style={theme === "light" ? { backgroundColor: 'white' } : { backgroundColor: 'black' }}
+            />
+        </button>
     );
 };
 

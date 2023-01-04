@@ -49,14 +49,13 @@ const Form = ({ calculateResult, theme }) => {
                     )}
                 </select>
             </p>
-            <p className="form__switchButtonParagraph">
-                <img 
-                src={theme === "light" ? arrowsDark : arrowsLight} 
-                alt="switch currencies button" 
-                width="30px" 
-                onClick={switchSelectValues}
+            <button className="form__switchButton" onClick={switchSelectValues}>
+                <img
+                    src={theme === "light" ? arrowsDark : arrowsLight}
+                    alt="switch currencies button"
+                    width="30px"
                 />
-            </p>
+            </button>
             <span className="form__text">Wybierz drugą walutę:</span>
             <p className="form__paragraph">
                 <select

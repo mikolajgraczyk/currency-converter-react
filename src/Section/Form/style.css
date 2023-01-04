@@ -80,26 +80,29 @@
     }
 }
 
-.form__switchButtonParagraph {
-    margin: 0;
+.form__switchButton {
     transition: 0.3s;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0; 
     grid-column-start: 2;
     grid-column-end: 3;
     justify-self: center;
 }
 
-@media(max-width: 550px) {
-    .form__switchButtonParagraph {
-        grid-column-start: 0;
-        grid-column-end: 1;
-    }
-}
-
-.form__switchButtonParagraph:hover {
+.form__switchButton:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
 
-.form__switchButtonParagraph:active {
+.form__switchButton:active {
     transform: scale(1.2);
+}
+
+@media(max-width: 550px) {
+    .form__switchButton {
+        grid-column-start: 0;
+        grid-column-end: 1;
+    }
 }
