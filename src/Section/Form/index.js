@@ -1,5 +1,6 @@
 import { currencies } from '../../utils/currencies';
 import { useState } from 'react';
+import arrows from './arrows.png';
 import './style.css';
 
 const Form = ({ calculateResult }) => {
@@ -8,6 +9,12 @@ const Form = ({ calculateResult }) => {
 
     const [firstSelectValue, setFirstSelectValue] = useState("PLN");
     const [secondSelectValue, setSecondSelectValue] = useState("USD");
+
+    const switchSelectValues = (event) => {
+        event.preventDefault();
+        setFirstSelectValue(secondSelectValue);
+        setSecondSelectValue(firstSelectValue);
+    };
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -44,6 +51,10 @@ const Form = ({ calculateResult }) => {
                 </select>
             </p>
 
+            <p className="form__switchButtonParagraph">
+                <img src={arrows} width="30px" onClick={switchSelectValues}/>
+            </p>
+
             <span className="form__text">Wybierz drugą walutę:</span>
             <p className="form__paragraph">
                 <select
@@ -61,9 +72,7 @@ const Form = ({ calculateResult }) => {
                     )}
                 </select>
             </p>
-
             <button className="form__button">Przelicz</button>
-
         </form>
     );
 };
