@@ -1,19 +1,17 @@
 .themeSwitch {
     background: none;
-    position: fixed;
+    position: absolute;
     width: 27px;
     height: 27px;
     border: none;
     border-radius: 50%;
     transition: 0.3s;
+    padding: 0;
 }
 
 .themeSwitch--image {
-    margin-left: -6px;
-    margin-top: -1px;
     padding: 3px;
     width: 27px;
-    height: 27px;
     border-radius: 50%;
 }
 
