@@ -9,7 +9,7 @@ import { currencies } from './utils/currencies';
 function App() {
 
   const [result, setResult] = useState();
-  const [theme, setTheme] = useState();
+  const [theme, setTheme] = useState("dark");
 
   const calculateResult = (firstSelectValue, secondSelectValue, firstInputValue) => {
 
