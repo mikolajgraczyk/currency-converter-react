@@ -1,15 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Section from './Section';
 import Form from './Section/Form';
 import Result from './Section/Result';
 import Header from './Section/Header';
 import ThemeSwitch from './Section/ThemeSwitch';
+import DateAndTime from './Section/DateAndTime';
 import { currencies } from './utils/currencies';
 
 function App() {
 
   const [result, setResult] = useState();
   const [theme, setTheme] = useState("dark");
+
+  // const [theme, setTheme] = useState(localStorage.getItem("userTheme") || "light");
+
+  // useEffect(() => {
+  //   localStorage.setItem("userTheme", theme);
+  // }, [theme])
 
   const calculateResult = (firstSelectValue, secondSelectValue, firstInputValue) => {
 
@@ -26,24 +33,33 @@ function App() {
     })
   }
 
-  const themeInfo = (theme) => {
-    setTheme(theme)
+
+  const themeToggle = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
   return (
     <Section
-    theme={theme}
+      theme={theme}
+      DateAndTime={
+        <DateAndTime
+        />
+      }
+      Result={
+        <Result
+          result={result}
+        />
+      }
+      result={result}
     >
       <ThemeSwitch
-        themeInfo={themeInfo}
+        themeToggle={themeToggle}
+        theme={theme}
       />
       <Header title="Przelicznik walut" />
       <Form
         calculateResult={calculateResult}
         theme={theme}
-      />
-      <Result
-        result={result}
       />
     </Section>
   );

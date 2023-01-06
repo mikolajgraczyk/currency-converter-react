@@ -3,15 +3,7 @@ import darkSun from "./darkSun.png"
 import lightSun from "./lightSun.png"
 import "./style.css";
 
-const ThemeSwitch = ({ themeInfo }) => {
-
-    const [theme, setTheme] = useState("dark");
-
-    themeInfo(theme);
-
-    const themeToggle = () => {
-        theme === "light" ? setTheme("dark") : setTheme("light");
-    };
+const ThemeSwitch = ({ themeToggle, theme }) => {
 
     return (
         <button className="themeSwitch" onClick={themeToggle}>

@@ -1,0 +1,58 @@
+.hour {
+    font-size: 28px;
+    flex: auto;
+    letter-spacing: 2px;
+    align-self: flex-start;
+    margin-left: 18px;
+}
+
+@media(max-width: 700px) {
+    .hour {
+        font-size: 40px;
+        grid-column-start: 2;
+        grid-column-end: 2;
+        margin-top: -7px;
+        margin-left: 0;
+    }
+}
+
+.day {
+    font-size: 100px;
+    flex: auto;
+}
+
+@media(max-width: 700px) {
+    .day {
+        font-size: 25px;
+        justify-self: left;
+        grid-row-start: 1;
+        grid-row-start: 2;
+    }
+}
+
+.month {
+    font-size: 35px;
+    flex: auto;
+}
+
+@media(max-width: 700px) {
+    .month {
+        font-size: 25px;
+        grid-row-start: 1;
+        grid-row-start: 2;
+    }
+}
+
+.year {
+    font-size: 20px;
+    flex: auto;
+}
+
+@media(max-width: 700px) {
+    .year {
+        font-size: 25px;
+        grid-row-start: 1;
+        grid-row-start: 2;
+        justify-self: right;
+    }
+}

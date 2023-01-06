@@ -16,7 +16,7 @@
     padding: 2px;
 }
 
-@media(max-width: 550px) {
+@media(max-width: 700px) {
     .themeSwitch {
         width: 23px;
         height: 23px;

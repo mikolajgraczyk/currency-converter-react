@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-@media(max-width: 550px) {
+@media(max-width: 700px) {
     .form {
         grid-template-columns: 1fr;
         grid-gap: 20px;
@@ -18,7 +18,7 @@
     grid-gap: 6px;
 }
 
-@media(max-width: 550px) {
+@media(max-width: 700px) {
     .form__paragraph {
         grid-gap: 3px;
     }
@@ -73,7 +73,7 @@
     background-color: rgb(189, 189, 189);
 }
 
-@media(max-width: 550px) {
+@media(max-width: 700px) {
     .form__button {
         grid-column-start: 0;
         grid-column-end: 1;
@@ -100,7 +100,7 @@
     transform: scale(1.2);
 }
 
-@media(max-width: 550px) {
+@media(max-width: 700px) {
     .form__switchButton {
         grid-column-start: 0;
         grid-column-end: 1;

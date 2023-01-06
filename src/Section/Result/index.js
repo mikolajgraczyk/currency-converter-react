@@ -1,5 +1,3 @@
-import "./style.css";
-
 const Result = ({ result }) => (
     <div className="result">
         {result !== undefined &&
