@@ -27,11 +27,12 @@ const Form = ({ calculateResult, theme }) => {
             <p className="form__paragraph">
                 <input
                     type="number"
+                    step="0.01"
+                    min={0.1}
                     className="form__input"
                     onChange={({ target }) => setFirstInputValue(target.value)}
                     value={firstInputValue}
                     placeholder="Wpisz kwotę"
-                    min={0}
                     required
                 />
                 <select

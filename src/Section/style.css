@@ -19,7 +19,7 @@
     display: grid;
     align-content: center;
     border-radius: 10px;
-    background-color: rgba(34, 34, 34, 0.90);
+    background-color: rgba(34, 34, 34, 0.85);
     color: white;
     transition: 0.3s;
 
@@ -33,7 +33,7 @@
     display: grid;
     align-content: center;
     border-radius: 10px;
-    background-color: hsla(0, 0%, 80%, 0.9);
+    background-color: hsla(0, 0%, 80%, 0.85);
     color: rgb(0, 0, 0);
     transition: 0.3s;
 
@@ -78,7 +78,7 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    background-color: hsla(0, 0%, 80%, 0.9);
+    background-color: hsla(0, 0%, 80%, 0.85);
     color: rgb(0, 0, 0);
     transition: 0.3s;
 
@@ -121,7 +121,7 @@
 
 @media(max-width: 700px) {
     .container__result {
-        font-size: 25px;
+        font-size: 23px;
         grid-column-start: 1;
         grid-column-end: 1;
 
@@ -132,7 +132,7 @@
 }
 
 .container__result--light {
-    background-color: hsla(0, 0%, 80%, 0.9);
+    background-color: hsla(0, 0%, 80%, 0.85);
     color: rgb(0, 0, 0);
     border-radius: 10px;
     padding: 20px;
