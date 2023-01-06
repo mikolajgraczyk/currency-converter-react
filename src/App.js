@@ -10,13 +10,10 @@ import { currencies } from './utils/currencies';
 function App() {
 
   const [result, setResult] = useState();
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
-  // const [theme, setTheme] = useState(localStorage.getItem("userTheme") || "light");
+  localStorage.setItem("theme", theme);
 
-  // useEffect(() => {
-  //   localStorage.setItem("userTheme", theme);
-  // }, [theme])
 
   const calculateResult = (firstSelectValue, secondSelectValue, firstInputValue) => {
 
