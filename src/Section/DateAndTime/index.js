@@ -3,26 +3,10 @@ import "./style.css";
 
 const DateAndTime = () => {
 
-    const [currentTime, setCurrentTime] = useState();
-    const [year, setyear] = useState();
-    const [month, setMonth] = useState();
-    const [day, setDay] = useState();
+    const [myDate, setMyDate] = useState(new Date());
 
     useEffect(() => {
-        const setDateAndTime = () => {
-            let myDate = new Date();
-            const time = myDate.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit", second: "2-digit" });
-            const year = myDate.toLocaleDateString(undefined, { year: "numeric" });
-            const month = myDate.toLocaleDateString(undefined, { month: "long" });
-            const day = myDate.toLocaleDateString(undefined, { day: "numeric" });
-
-            setCurrentTime(time)
-            setyear(year)
-            setMonth(month)
-            setDay(day)
-        };
-        setDateAndTime()
-        const intervalId = setInterval(setDateAndTime, 1000);
+        const intervalId = setInterval(() => setMyDate(new Date()), 1000);
 
         return () => {
             clearInterval(intervalId);
@@ -32,16 +16,16 @@ const DateAndTime = () => {
     return (
         <>
             <div className="hour">
-                {currentTime}
+                {myDate.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
             </div>
             <div className="day">
-                {day}
+                {myDate.toLocaleDateString(undefined, { day: "numeric" })}
             </div>
             <div className="month">
-                {month}
+                {myDate.toLocaleDateString(undefined, { month: "long" })}
             </div>
             <div className="year">
-                {year}
+                {myDate.toLocaleDateString(undefined, { year: "numeric" })}
             </div>
         </>
     );

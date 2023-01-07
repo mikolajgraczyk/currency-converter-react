@@ -3,7 +3,7 @@
     flex: auto;
     letter-spacing: 2px;
     align-self: flex-start;
-    margin-left: 18px;
+    margin-left: 25px;
 }
 
 @media(max-width: 700px) {
