@@ -12,8 +12,9 @@ function App() {
   const [result, setResult] = useState();
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
-  localStorage.setItem("theme", theme);
-
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const calculateResult = (firstSelectValue, secondSelectValue, firstInputValue) => {
 
