@@ -1,20 +1,20 @@
-import "./style.css";
+import { Container, Converter, Aside, ResultSection } from "./styled";
 
 const Section = ({ children, theme, DateAndTime, Result, result }) => {
     return (
-        <div className="container">
-            <section className={theme === "light" ? "container__converter--light" : "container__converter"}>
+        <Container>
+            <Converter light={theme === "light"}>
                 {children}
-            </section>
-            <section className={theme === "light" ? "container__aside--light" : "container__aside"}>
+            </Converter>
+            <Aside light={theme === "light"}>
                 {DateAndTime}
-            </section>
+            </Aside>
             {result !== undefined &&
-                <section className={theme === "light" ? "container__result--light" : "container__result"}>
+                <ResultSection light={theme === "light"}>
                     {Result}
-                </section>
+                </ResultSection>
             }
-        </div>
+        </Container>
     );
 };
 

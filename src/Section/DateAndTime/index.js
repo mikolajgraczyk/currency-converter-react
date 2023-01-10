@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import "./style.css";
+import { Hour, Day, Month, Year } from "./styled";
 
 const DateAndTime = () => {
 
@@ -15,18 +15,18 @@ const DateAndTime = () => {
 
     return (
         <>
-            <div className="hour">
+            <Hour>
                 {myDate.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
-            </div>
-            <div className="day">
+            </Hour>
+            <Day>
                 {myDate.toLocaleDateString(undefined, { day: "numeric" })}
-            </div>
-            <div className="month">
+            </Day>
+            <Month>
                 {myDate.toLocaleDateString(undefined, { month: "long" })}
-            </div>
-            <div className="year">
+            </Month>
+            <Year>
                 {myDate.toLocaleDateString(undefined, { year: "numeric" })}
-            </div>
+            </Year>
         </>
     );
 };

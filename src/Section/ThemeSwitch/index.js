@@ -1,19 +1,18 @@
 import { useState } from "react";
-import darkSun from "./darkSun.png"
-import lightSun from "./lightSun.png"
-import "./style.css";
+import darkSun from "./darkSun.png";
+import lightSun from "./lightSun.png";
+import { Switch, SwitchImage } from "./styled";
 
 const ThemeSwitch = ({ themeToggle, theme }) => {
 
     return (
-        <button className="themeSwitch" onClick={themeToggle}>
-            <img
+        <Switch onClick={themeToggle}>
+            <SwitchImage
+                light={theme === "light"}
                 src={theme === "dark" ? lightSun : darkSun}
                 alt="theme switch button"
-                className="themeSwitch--image"
-                style={theme === "light" ? { backgroundColor: 'white' } : { backgroundColor: 'black' }}
             />
-        </button>
+        </Switch>
     );
 };
 

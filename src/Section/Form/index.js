@@ -2,7 +2,7 @@ import { currencies } from '../../utils/currencies';
 import { useState } from 'react';
 import arrowsLight from './arrowsLight.png';
 import arrowsDark from './arrowsDark.png';
-import './style.css';
+import { FormSection, Interactions, Input, Select, FormText, SubmitButton, SwapButton } from "./styled";
 
 const Form = ({ calculateResult, theme }) => {
 
@@ -22,21 +22,20 @@ const Form = ({ calculateResult, theme }) => {
     };
 
     return (
-        <form className="form" onSubmit={onFormSubmit}>
-            <span className="form__text">Wybierz pierwszą walutę:</span>
-            <p className="form__paragraph">
-                <input
+        <FormSection onSubmit={onFormSubmit}>
+            <FormText>Wybierz pierwszą walutę:</FormText>
+            <Interactions>
+                <Input
                     type="number"
                     step="0.01"
                     min={0.1}
-                    className="form__input"
+
                     onChange={({ target }) => setFirstInputValue(target.value)}
                     value={firstInputValue}
                     placeholder="Wpisz kwotę"
                     required
                 />
-                <select
-                    className="form__select"
+                <Select
                     onChange={({ target }) => setFirstSelectValue(target.value)}
                     value={firstSelectValue}
                 >
@@ -48,17 +47,17 @@ const Form = ({ calculateResult, theme }) => {
                             {currency.name}
                         </option>
                     )}
-                </select>
-            </p>
-            <button className="form__switchButton" onClick={switchSelectValues}>
+                </Select>
+            </Interactions>
+            <SwapButton onClick={switchSelectValues}>
                 <img
                     src={theme === "light" ? arrowsDark : arrowsLight}
                     alt="switch currencies button"
                     width="30px"
                 />
-            </button>
+            </SwapButton>
             <span className="form__text">Wybierz drugą walutę:</span>
-            <p className="form__paragraph">
+            <Interactions>
                 <select
                     className="form__select"
                     onChange={({ target }) => setSecondSelectValue(target.value)}
@@ -73,9 +72,9 @@ const Form = ({ calculateResult, theme }) => {
                         </option>
                     )}
                 </select>
-            </p>
-            <button className="form__button">Przelicz</button>
-        </form>
+            </Interactions>
+            <SubmitButton>Przelicz</SubmitButton >
+        </FormSection>
     );
 };
 
