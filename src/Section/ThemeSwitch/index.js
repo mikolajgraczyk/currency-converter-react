@@ -1,4 +1,3 @@
-import { useState } from "react";
 import darkSun from "./darkSun.png";
 import lightSun from "./lightSun.png";
 import { Switch, SwitchImage } from "./styled";
