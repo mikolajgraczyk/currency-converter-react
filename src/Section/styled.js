@@ -19,7 +19,7 @@ export const Converter = styled.section`
     display: grid;
     align-content: center;
     border-radius: 10px;
-    background-color: rgba(34, 34, 34, 0.85);
+    background-color: ${({ theme }) => theme.color.MineShaft};
     color: white;
     transition: 0.3s;
 
@@ -32,7 +32,7 @@ export const Converter = styled.section`
         display: grid;
         align-content: center;
         border-radius: 10px;
-        background-color: hsla(0, 0%, 80%, 0.85);
+        background-color: ${({ theme }) => theme.color.WispPink};
         color: rgb(0, 0, 0);
         transition: 0.3s;
 
@@ -48,7 +48,7 @@ export const Aside = styled.section`
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    background-color: rgba(34, 34, 34, 0.90);
+    background-color: ${({ theme }) => theme.color.MineShaft};
     color: white;
     transition: 0.3s;
 
@@ -75,7 +75,7 @@ export const Aside = styled.section`
         flex-direction: column;
         align-items: center;
         border-radius: 10px;
-        background-color: hsla(0, 0%, 80%, 0.85);
+        background-color: ${({ theme }) => theme.color.WispPink};
         color: rgb(0, 0, 0);
         transition: 0.3s;
 
@@ -86,7 +86,7 @@ export const Aside = styled.section`
 `;
 
 export const ResultSection = styled.section`
-    background-color: rgba(34, 34, 34, 0.90);
+    background-color: ${({ theme }) => theme.color.MineShaft};
     color: white;
     border-radius: 10px;
     padding: 20px;
@@ -112,7 +112,7 @@ export const ResultSection = styled.section`
     }
 
     ${({ light }) => light && css`
-        background-color: hsla(0, 0%, 80%, 0.85);
+        background-color: ${({ theme }) => theme.color.WispPink};
         color: rgb(0, 0, 0);
         border-radius: 10px;
         padding: 20px;
