@@ -1,17 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Hour, Day, Month, Year } from "./styled";
+import { useCurrentDate } from "./useCurrentDate";
 
 const DateAndTime = () => {
-
-    const [myDate, setMyDate] = useState(new Date());
-
-    useEffect(() => {
-        const intervalId = setInterval(() => setMyDate(new Date()), 1000);
-
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, []);
+    const myDate = useCurrentDate();
 
     return (
         <>
