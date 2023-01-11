@@ -12,12 +12,14 @@ const Form = ({ calculateResult, theme }) => {
 
     const switchSelectValues = (event) => {
         event.preventDefault();
+
         setFirstSelectValue(secondSelectValue);
         setSecondSelectValue(firstSelectValue);
     };
 
     const onFormSubmit = (event) => {
         event.preventDefault();
+        
         calculateResult(firstSelectValue, secondSelectValue, firstInputValue)
     };
 
@@ -56,10 +58,9 @@ const Form = ({ calculateResult, theme }) => {
                     width="30px"
                 />
             </SwapButton>
-            <span className="form__text">Wybierz drugą walutę:</span>
+            <FormText>Wybierz drugą walutę:</FormText>
             <Interactions>
-                <select
-                    className="form__select"
+                <Select
                     onChange={({ target }) => setSecondSelectValue(target.value)}
                     value={secondSelectValue}
                 >
@@ -71,7 +72,7 @@ const Form = ({ calculateResult, theme }) => {
                             {currency.name}
                         </option>
                     )}
-                </select>
+                </Select>
             </Interactions>
             <SubmitButton>Przelicz</SubmitButton >
         </FormSection>

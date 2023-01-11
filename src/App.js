@@ -8,7 +8,6 @@ import DateAndTime from './Section/DateAndTime';
 import { currencies } from './utils/currencies';
 
 function App() {
-
   const [result, setResult] = useState();
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
@@ -17,16 +16,14 @@ function App() {
   }, [theme]);
 
   const calculateResult = (firstSelectValue, secondSelectValue, firstInputValue) => {
-
     const firstSelectedCurrency = currencies.find(({ short }) => short === firstSelectValue);
     const secondSelectedCurrency = currencies.find(({ short }) => short === secondSelectValue);
-
-    const setRate = secondSelectedCurrency.rate / firstSelectedCurrency.rate;
+    const rate = secondSelectedCurrency.rate / firstSelectedCurrency.rate;
 
     setResult({
       firstInputValue,
       fromCurrency: firstSelectedCurrency.short,
-      calculated: (setRate * firstInputValue).toFixed(2),
+      calculated: (rate * firstInputValue).toFixed(2),
       toCurrency: secondSelectedCurrency.short,
     })
   }

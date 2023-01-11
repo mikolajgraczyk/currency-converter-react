@@ -1,16 +1,18 @@
 import { Container, Converter, Aside, ResultSection } from "./styled";
 
 const Section = ({ children, theme, DateAndTime, Result, result }) => {
+    const isLightTheme = theme === "light";
+    
     return (
         <Container>
-            <Converter light={theme === "light"}>
+            <Converter light={isLightTheme}>
                 {children}
             </Converter>
-            <Aside light={theme === "light"}>
+            <Aside light={isLightTheme}>
                 {DateAndTime}
             </Aside>
             {result !== undefined &&
-                <ResultSection light={theme === "light"}>
+                <ResultSection light={isLightTheme}>
                     {Result}
                 </ResultSection>
             }

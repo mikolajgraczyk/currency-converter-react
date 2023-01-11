@@ -60,7 +60,7 @@ export const Input = styled.input`
 
     &:hover{
         cursor: pointer;
-        background-color: ${({ theme }) => theme.color.Alto};
+        background-color: ${({ theme }) => theme.color.alto};
     }
 `;
 
@@ -73,7 +73,7 @@ export const Select = styled.select`
 
     &:hover{
         cursor: pointer;
-         background-color: ${({ theme }) => theme.color.Alto};
+         background-color: ${({ theme }) => theme.color.alto};
     }
 `;
 
@@ -93,10 +93,10 @@ export const SubmitButton = styled.button`
 
     &:hover{
         cursor: pointer;
-        background-color: ${({ theme }) => theme.color.Alto};
+        background-color: ${({ theme }) => theme.color.alto};
     }
 
     &:active{
-        background-color: ${({ theme }) => theme.color.Silver};
+        background-color: ${({ theme }) => theme.color.silver};
     }
 `;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeaderSection = styled.p`
+export const HeaderSection = styled.div`
     text-align: center;
     font-size: 30px;
     font-weight: 600;
