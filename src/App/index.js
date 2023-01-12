@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import Section from './Section';
-import Form from './Section/Form';
-import Result from './Section/Result';
-import Header from './Section/Header';
-import ThemeSwitch from './Section/ThemeSwitch';
-import DateAndTime from './Section/DateAndTime';
-import { currencies } from './utils/currencies';
+import Form from './Form';
+import Result from './Result';
+import Header from './Header';
+import ThemeSwitch from './ThemeSwitch';
+import DateAndTime from './DateAndTime';
+import { currencies } from '../utils/currencies';
+import { Container, Converter, Aside, ResultSection } from './styled';
 
 function App() {
   const [result, setResult] = useState();
@@ -33,30 +33,30 @@ function App() {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
+  const isLightTheme = theme === "light";
+
   return (
-    <Section
-      theme={theme}
-      DateAndTime={
-        <DateAndTime
+    <Container>
+    <Converter light={isLightTheme}>
+        <ThemeSwitch
+            themeToggle={themeToggle}
+            theme={theme}
         />
-      }
-      Result={
-        <Result
-          result={result}
+        <Header title="Przelicznik walut" />
+        <Form
+            calculateResult={calculateResult}
+            theme={theme}
         />
-      }
-      result={result}
-    >
-      <ThemeSwitch
-        themeToggle={themeToggle}
-        theme={theme}
-      />
-      <Header title="Przelicznik walut" />
-      <Form
-        calculateResult={calculateResult}
-        theme={theme}
-      />
-    </Section>
+    </Converter>
+    <Aside light={isLightTheme}>
+        <DateAndTime />
+    </Aside>
+    {result !== undefined && (
+        <ResultSection light={isLightTheme}>
+            <Result result={result} />
+        </ResultSection>
+    )}
+</Container>
   );
 };
 
