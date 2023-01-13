@@ -33,6 +33,11 @@ function App() {
         theme === "light" ? setTheme("dark") : setTheme("light");
     };
 
+    fetch("latest.json")
+        .then(response => response.json())
+        .then(rates => console.log(rates))
+        .catch(error => console.error(error));
+
     const isLightTheme = theme === "light";
 
     return (
