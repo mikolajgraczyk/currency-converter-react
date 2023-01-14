@@ -4,7 +4,7 @@ import Result from './Result';
 import Header from './Header';
 import ThemeSwitch from './ThemeSwitch';
 import DateAndTime from './DateAndTime';
-import { currencies } from '../utils/currencies';
+import { useCurrenciesApiFetch } from './useCurrenciesApiFetch';
 import { Container, Converter, Aside, ResultSection } from './styled';
 
 function App() {
@@ -28,17 +28,16 @@ function App() {
         })
     }
 
-
     const themeToggle = () => {
         theme === "light" ? setTheme("dark") : setTheme("light");
     };
 
-    fetch("latest.json")
-        .then(response => response.json())
-        .then(rates => console.log(rates))
-        .catch(error => console.error(error));
-
     const isLightTheme = theme === "light";
+
+    const {
+        currencies,
+        rateDate,
+    } = useCurrenciesApiFetch();
 
     return (
         <Container>
@@ -51,6 +50,7 @@ function App() {
                 <Form
                     calculateResult={calculateResult}
                     theme={theme}
+                    currencies={currencies}
                 />
             </Converter>
             <Aside light={isLightTheme}>

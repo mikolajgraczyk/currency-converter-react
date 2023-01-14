@@ -1,14 +1,13 @@
-import { currencies } from '../../utils/currencies';
 import { useState } from 'react';
 import arrowsLight from './arrowsLight.png';
 import arrowsDark from './arrowsDark.png';
 import { FormSection, Interactions, Input, Select, FormText, SubmitButton, SwapButton } from "./styled";
 
-const Form = ({ calculateResult, theme }) => {
+const Form = ({ calculateResult, theme, currencies }) => {
 
     const [firstInputValue, setFirstInputValue] = useState("");
     const [firstSelectValue, setFirstSelectValue] = useState("PLN");
-    const [secondSelectValue, setSecondSelectValue] = useState("USD");
+    const [secondSelectValue, setSecondSelectValue] = useState("EUR");
 
     const switchSelectValues = (event) => {
         event.preventDefault();
@@ -19,7 +18,7 @@ const Form = ({ calculateResult, theme }) => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        
+
         calculateResult(firstSelectValue, secondSelectValue, firstInputValue)
     };
 
@@ -41,12 +40,12 @@ const Form = ({ calculateResult, theme }) => {
                     onChange={({ target }) => setFirstSelectValue(target.value)}
                     value={firstSelectValue}
                 >
-                    {currencies.map(currency =>
+                    {currencies && currencies.map(currency =>
                         <option
                             key={currency.short}
                             value={currency.short}
                         >
-                            {currency.name}
+                            {currency.short}
                         </option>
                     )}
                 </Select>
@@ -64,12 +63,12 @@ const Form = ({ calculateResult, theme }) => {
                     onChange={({ target }) => setSecondSelectValue(target.value)}
                     value={secondSelectValue}
                 >
-                    {currencies.map(currency =>
+                    {currencies && currencies.map(currency =>
                         <option
                             key={currency.short}
                             value={currency.short}
                         >
-                            {currency.name}
+                            {currency.short}
                         </option>
                     )}
                 </Select>
