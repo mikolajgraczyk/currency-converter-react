@@ -50,7 +50,7 @@ function App() {
         <>
             <Container>
                 <Converter light={isLightTheme}>
-                    {renderInterface === false ?
+                    {!renderInterface ?
                         <LoadingScreen
                             loadingText={"Ładowanie kursów"}
                             theme={theme}

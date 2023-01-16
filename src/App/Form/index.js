@@ -24,7 +24,7 @@ const Form = ({ calculateResult, theme, currencies, isError }) => {
 
     return (
         <>
-            {isError === true ?
+            {isError ?
                 <FormSection error>
                     <ErrorInfo>Wystąpił błąd. Spróbuj ponownie później</ErrorInfo>
                 </FormSection> :
