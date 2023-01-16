@@ -11,6 +11,8 @@ This project was created in order to learn React and create-react-app. This curr
 - JSX
 - React
 - BEM
+- localStorage
+- fetch
 
 ## Demo
 
