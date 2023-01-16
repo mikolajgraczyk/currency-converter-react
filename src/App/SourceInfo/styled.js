@@ -6,5 +6,6 @@ export const SourceInfoSection = styled.div`
 
     @media(max-width: ${({theme}) => theme.breakpoint.mobileMax}px){
         font-size: 10px;
+        text-align: center;
     };
 `;
