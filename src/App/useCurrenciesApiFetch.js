@@ -7,29 +7,32 @@ export const useCurrenciesApiFetch = () => {
     });
 
     useEffect(() => {
-        axios.get('https://api.exchangerate.host/latest?BASE=PLN')
-            .then(currenciesApi => {
-                const currencies = Object.keys(currenciesApi.data.rates).map(key => {
-                    return {
-                        short: key,
-                        rate: currenciesApi.data.rates[key],
-                    }
-                });
-                const rateDate = currenciesApi.data.date;
+        const fetchRates = () => {
+            axios.get('https://api.exchangerate.host/latest?BASE=PLN')
+                .then(currenciesApi => {
+                    const currencies = Object.keys(currenciesApi.data.rates).map(key => {
+                        return {
+                            short: key,
+                            rate: currenciesApi.data.rates[key],
+                        }
+                    });
+                    const rateDate = currenciesApi.data.date;
 
-                setApiResponse({
-                    status: "success",
-                    currencies,
-                    rateDate,
+                    setApiResponse({
+                        status: "success",
+                        currencies,
+                        rateDate,
+                    });
+                })
+                .catch((error) => {
+                    console.error(`Wystąpił błąd: ${error}`);
+                    setApiResponse({
+                        status: "error",
+                    });
                 });
-            })
-            .catch((error) => {
-                console.error(`Wystąpił błąd: ${error}`);
-                setApiResponse({
-                    status: "error",
-                });
-            });
+        }
+        setTimeout(fetchRates, 1000);
     }, []);
-
+    
     return { apiResponse };
 }
