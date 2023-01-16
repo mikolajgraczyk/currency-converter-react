@@ -20,8 +20,6 @@ export const Switch = styled.button`
     }
 
     @media(max-width: 700px) {
-        width: 23px;
-        height: 23px;
         margin-left: -10px;
         margin-top: -10px;
     }
