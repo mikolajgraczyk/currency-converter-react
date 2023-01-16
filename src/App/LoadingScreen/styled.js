@@ -7,8 +7,17 @@ export const LoadingTextSection = styled.span`
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @media(max-width: 700px){
+        font-size: 25px;
+        gap: 10px;
+    }
 `;
 
 export const LoadingGif = styled.img`
     width: 50px;
+
+    @media(max-width: 700px){
+        width: 30px;
+    }
 `;
