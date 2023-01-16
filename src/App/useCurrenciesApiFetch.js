@@ -7,7 +7,7 @@ export const useCurrenciesApiFetch = () => {
     const [isError, setIsError] = useState();
 
     useEffect(() => {
-        axios.get("https://api.exchangerate.host/latest")
+        axios.get('https://api.exchangerate.host/latest')
             .then(currenciesApi => {
                 const currencies = Object.keys(currenciesApi.data.rates).map(key => {
                     return {

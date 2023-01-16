@@ -6,7 +6,7 @@ export const FormSection = styled.form`
     grid-gap: 15px;
     align-items: center;
 
-    @media(max-width: 700px) {
+     @media(max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
         grid-template-columns: 1fr;
         grid-gap: 20px;
     }
@@ -26,7 +26,7 @@ export const Interactions = styled.div`
     display: grid;
     grid-gap: 6px;
 
-    @media(max-width: 700px) {
+     @media(max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
         grid-gap: 3px;
     }
 `;
@@ -41,7 +41,7 @@ export const SwapButton = styled.button`
     grid-column-end: 3;
     justify-self: center;
 
-    @media(max-width: 700px) {
+    @media(max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
         grid-column-start: 0;
         grid-column-end: 1;
     }
@@ -90,7 +90,7 @@ export const SubmitButton = styled.button`
     border-radius: 5px;
     transition: 0.2s;
 
-    @media(max-width: 700px) {
+     @media(max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
         grid-column-start: 0;
         grid-column-end: 1;
     }
@@ -111,7 +111,7 @@ export const ErrorInfo = styled.span`
     padding: 60px;
     color: red;
 
-    @media(max-width: 700px) {
+     @media(max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
         padding: 20px;
         font-size: 18px;
     }

@@ -8,7 +8,7 @@ export const Container = styled.div`
     grid-template-columns: 3fr 1fr;
     grid-gap: 10px;
 
-    @media(max-width: 700px) {
+     @media(max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
         grid-template-columns: 1fr;
         margin: 10% auto;
     }
@@ -55,7 +55,7 @@ export const Aside = styled.section`
     -moz-box-shadow: 30px 0px 68px 5px rgba(0, 0, 0, 1);
     box-shadow: 30px 0px 68px 5px rgba(0, 0, 0, 1);
 
-    @media(max-width: 700px) {
+     @media(max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
         grid-row-start: 1;
         height: 100px;
         display: grid;
@@ -100,7 +100,7 @@ export const ResultSection = styled.section`
     -moz-box-shadow: 0px 30px 68px 5px rgba(66, 68, 90, 1);
     box-shadow: 0px 30px 68px 5px rgb(0, 0, 0);
 
-    @media(max-width: 700px) {
+     @media(max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
         font-size: 23px;
         grid-column-start: 1;
         grid-column-end: 1;

@@ -5,6 +5,7 @@ import Header from './Header';
 import ThemeSwitch from './ThemeSwitch';
 import DateAndTime from './DateAndTime';
 import LoadingScreen from './LoadingScreen';
+import SourceInfo from './SourceInfo';
 import { useCurrenciesApiFetch } from './useCurrenciesApiFetch';
 import { Container, Converter, Aside, ResultSection } from './styled';
 
@@ -67,6 +68,7 @@ function App() {
                                 currencies={currencies}
                                 isError={isError}
                             />
+                            <SourceInfo rateDate={rateDate}/>
                         </>
                     }
                 </Converter>

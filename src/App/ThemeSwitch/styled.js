@@ -19,7 +19,7 @@ export const Switch = styled.button`
         transform: scale(1.2);
     }
 
-    @media(max-width: 700px) {
+     @media(max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
         margin-left: -10px;
         margin-top: -10px;
     }

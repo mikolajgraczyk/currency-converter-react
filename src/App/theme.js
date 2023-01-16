@@ -4,5 +4,8 @@ export const theme = {
         wispPink: "rgba(204, 204, 204, 0.85)",
         alto: "rgb(208, 208, 208)",
         silver: "rgb(189, 189, 189)",
-    }
+    },
+    breakpoint: {
+        mobileMax: 700,
+    },
 };
