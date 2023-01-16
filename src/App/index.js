@@ -12,15 +12,14 @@ import { Container, Converter, Aside, ResultSection } from './styled';
 function App() {
     const [result, setResult] = useState();
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
-    const [renderInterface, setRenderInterface] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("theme", theme);
     }, [theme]);
 
     const calculateResult = (firstSelectValue, secondSelectValue, firstInputValue) => {
-        const firstSelectedCurrency = currencies.find(({ short }) => short === firstSelectValue);
-        const secondSelectedCurrency = currencies.find(({ short }) => short === secondSelectValue);
+        const firstSelectedCurrency = apiResponse.currencies.find(({ short }) => short === firstSelectValue);
+        const secondSelectedCurrency = apiResponse.currencies.find(({ short }) => short === secondSelectValue);
         const rate = secondSelectedCurrency.rate / firstSelectedCurrency.rate;
 
         setResult({
@@ -37,21 +36,13 @@ function App() {
 
     const isLightTheme = theme === "light";
 
-    setTimeout(() => {
-        setRenderInterface(true);
-    }, 1000);
-
-    const {
-        currencies,
-        rateDate,
-        isError
-    } = useCurrenciesApiFetch();
+    const { apiResponse } = useCurrenciesApiFetch();
 
     return (
         <>
             <Container>
                 <Converter light={isLightTheme}>
-                    {!renderInterface ?
+                    {apiResponse.status === "loading" ?
                         <LoadingScreen
                             loadingText={"Ładowanie kursów"}
                             theme={theme}
@@ -65,10 +56,9 @@ function App() {
                             <Form
                                 calculateResult={calculateResult}
                                 theme={theme}
-                                currencies={currencies}
-                                isError={isError}
+                                apiResponse={apiResponse}
                             />
-                            <SourceInfo rateDate={rateDate}/>
+                            <SourceInfo apiResponse={apiResponse} />
                         </>
                     }
                 </Converter>

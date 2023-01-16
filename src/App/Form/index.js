@@ -3,8 +3,7 @@ import arrowsLight from './arrowsLight.png';
 import arrowsDark from './arrowsDark.png';
 import { FormSection, Interactions, Input, Select, FormText, SubmitButton, SwapButton, ErrorInfo } from "./styled";
 
-const Form = ({ calculateResult, theme, currencies, isError }) => {
-
+const Form = ({ calculateResult, theme, apiResponse }) => {
     const [firstInputValue, setFirstInputValue] = useState("");
     const [firstSelectValue, setFirstSelectValue] = useState("PLN");
     const [secondSelectValue, setSecondSelectValue] = useState("EUR");
@@ -24,7 +23,7 @@ const Form = ({ calculateResult, theme, currencies, isError }) => {
 
     return (
         <>
-            {isError ?
+            {apiResponse.status === "error" ?
                 <FormSection error>
                     <ErrorInfo>Wystąpił błąd. Spróbuj ponownie później</ErrorInfo>
                 </FormSection> :
@@ -45,7 +44,7 @@ const Form = ({ calculateResult, theme, currencies, isError }) => {
                             onChange={({ target }) => setFirstSelectValue(target.value)}
                             value={firstSelectValue}
                         >
-                            {currencies && currencies.map(currency =>
+                            {apiResponse.currencies && apiResponse.currencies.map(currency =>
                                 <option
                                     key={currency.short}
                                     value={currency.short}
@@ -68,7 +67,7 @@ const Form = ({ calculateResult, theme, currencies, isError }) => {
                             onChange={({ target }) => setSecondSelectValue(target.value)}
                             value={secondSelectValue}
                         >
-                            {currencies && currencies.map(currency =>
+                            {apiResponse.currencies && apiResponse.currencies.map(currency =>
                                 <option
                                     key={currency.short}
                                     value={currency.short}

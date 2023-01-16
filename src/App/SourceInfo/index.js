@@ -1,8 +1,8 @@
 import { SourceInfoSection } from "./styled";
 
-const SourceInfo = ({ rateDate }) => (
-    <SourceInfoSection>
-        Kursy pochodzą z baz danych Komisji Europejskiej z dnia <strong>{rateDate}</strong>
+const SourceInfo = ({ apiResponse }) => (
+    <SourceInfoSection error={apiResponse.status === "error"}>
+        Kursy pochodzą z baz danych Komisji Europejskiej z dnia <strong>{apiResponse.rateDate}</strong>
     </SourceInfoSection>
 );
 

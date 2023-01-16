@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export const useCurrenciesApiFetch = () => {
-    const [currencies, setCurrencies] = useState();
-    const [rateDate, setRateDate] = useState();
-    const [isError, setIsError] = useState();
+    const [apiResponse, setApiResponse] = useState({
+        status: "loading",
+    });
 
     useEffect(() => {
         axios.get('https://api.exchangerate.host/latest?BASE=PLN')
@@ -15,17 +15,21 @@ export const useCurrenciesApiFetch = () => {
                         rate: currenciesApi.data.rates[key],
                     }
                 });
-                const date = currenciesApi.data.date;
+                const rateDate = currenciesApi.data.date;
 
-                setIsError(false);
-                setCurrencies(currencies);
-                setRateDate(date);
+                setApiResponse({
+                    status: "success",
+                    currencies,
+                    rateDate,
+                });
             })
             .catch((error) => {
                 console.error(`Wystąpił błąd: ${error}`);
-                setIsError(true);
+                setApiResponse({
+                    status: "error",
+                });
             });
     }, []);
 
-    return { currencies, rateDate, isError };
+    return { apiResponse };
 }
