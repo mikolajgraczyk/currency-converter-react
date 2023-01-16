@@ -4,12 +4,14 @@ import Result from './Result';
 import Header from './Header';
 import ThemeSwitch from './ThemeSwitch';
 import DateAndTime from './DateAndTime';
+import LoadingScreen from './LoadingScreen';
 import { useCurrenciesApiFetch } from './useCurrenciesApiFetch';
 import { Container, Converter, Aside, ResultSection } from './styled';
 
 function App() {
     const [result, setResult] = useState();
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+    const [renderInterface, setRenderInterface] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("theme", theme);
@@ -34,34 +36,50 @@ function App() {
 
     const isLightTheme = theme === "light";
 
+    setTimeout(() => {
+        setRenderInterface(true);
+    }, 1000);
+
     const {
         currencies,
         rateDate,
+        isError
     } = useCurrenciesApiFetch();
 
     return (
-        <Container>
-            <Converter light={isLightTheme}>
-                <ThemeSwitch
-                    themeToggle={themeToggle}
-                    theme={theme}
-                />
-                <Header title="Przelicznik walut" />
-                <Form
-                    calculateResult={calculateResult}
-                    theme={theme}
-                    currencies={currencies}
-                />
-            </Converter>
-            <Aside light={isLightTheme}>
-                <DateAndTime />
-            </Aside>
-            {result !== undefined && (
-                <ResultSection light={isLightTheme}>
-                    <Result result={result} />
-                </ResultSection>
-            )}
-        </Container>
+        <>
+            <Container>
+                <Converter light={isLightTheme}>
+                    {renderInterface === false ?
+                        <LoadingScreen
+                            loadingText={"Ładowanie kursów"}
+                            theme={theme}
+                        /> :
+                        <>
+                            <ThemeSwitch
+                                themeToggle={themeToggle}
+                                theme={theme}
+                            />
+                            <Header title={"Przelicznik walut"} />
+                            <Form
+                                calculateResult={calculateResult}
+                                theme={theme}
+                                currencies={currencies}
+                                isError={isError}
+                            />
+                        </>
+                    }
+                </Converter>
+                <Aside light={isLightTheme}>
+                    <DateAndTime />
+                </Aside>
+                {result !== undefined && (
+                    <ResultSection light={isLightTheme}>
+                        <Result result={result} />
+                    </ResultSection>
+                )}
+            </Container>
+        </>
     );
 };
 

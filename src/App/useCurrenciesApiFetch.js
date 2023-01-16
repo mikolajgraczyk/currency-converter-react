@@ -2,25 +2,30 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export const useCurrenciesApiFetch = () => {
-    const [currencies, setCurrenciec] = useState();
+    const [currencies, setCurrencies] = useState();
     const [rateDate, setRateDate] = useState();
+    const [isError, setIsError] = useState();
 
     useEffect(() => {
-        axios.get("currency-converter-react/latest.json")
+        axios.get("https://api.exchangerate.host/latest")
             .then(currenciesApi => {
-                const currencies = Object.keys(currenciesApi.rates).map(key => {
+                const currencies = Object.keys(currenciesApi.data.rates).map(key => {
                     return {
                         short: key,
-                        rate: currenciesApi.rates[key]
+                        rate: currenciesApi.data.rates[key],
                     }
                 });
-                const date = currenciesApi.date;
+                const date = currenciesApi.data.date;
 
+                setIsError(false);
+                setCurrencies(currencies);
                 setRateDate(date);
-                setCurrenciec(currencies);
             })
-            .catch((error) => console.error(error));
+            .catch((error) => {
+                console.error(`Wystąpił błąd: ${error}`);
+                setIsError(true);
+            });
     }, []);
 
-    return { currencies, rateDate };
+    return { currencies, rateDate, isError };
 }

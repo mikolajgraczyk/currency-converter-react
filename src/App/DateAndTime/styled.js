@@ -5,7 +5,7 @@ export const Hour = styled.div`
     flex: auto;
     letter-spacing: 2px;
     align-self: flex-start;
-    margin-left: 22px;
+    margin-left: 20px;
 
     @media(max-width: 700px) {
         font-size: 40px;

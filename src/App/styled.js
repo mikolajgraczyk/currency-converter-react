@@ -16,9 +16,9 @@ export const Container = styled.div`
 
 export const Converter = styled.section`
     padding: 20px;
-    display: grid;
     align-content: center;
     border-radius: 10px;
+    display: grid;
     background-color: ${({ theme }) => theme.color.mineShaft};
     color: white;
     transition: 0.3s;
@@ -29,7 +29,6 @@ export const Converter = styled.section`
 
     ${({ light }) => light && css`
         padding: 20px;
-        display: grid;
         align-content: center;
         border-radius: 10px;
         background-color: ${({ theme }) => theme.color.wispPink};

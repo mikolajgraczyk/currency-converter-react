@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const FormSection = styled.form`
     display: grid;
@@ -10,6 +10,10 @@ export const FormSection = styled.form`
         grid-template-columns: 1fr;
         grid-gap: 20px;
     }
+
+    ${({ error }) => error && css`
+    grid-template-columns: 1fr;
+    `}
 `;
 
 export const FormText = styled.span`
@@ -98,5 +102,17 @@ export const SubmitButton = styled.button`
 
     &:active{
         background-color: ${({ theme }) => theme.color.silver};
+    }
+`;
+
+export const ErrorInfo = styled.span`
+    text-align: center;
+    font-size: 20px;
+    padding: 60px;
+    color: red;
+
+    @media(max-width: 700px) {
+        padding: 20px;
+        font-size: 18px;
     }
 `;
