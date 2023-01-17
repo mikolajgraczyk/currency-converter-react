@@ -6,9 +6,11 @@ export const useCurrenciesApiFetch = () => {
         status: "loading",
     });
 
+    const randomNumber = Math.floor(Math.random() * 100000);
+
     useEffect(() => {
         const fetchRates = () => {
-            axios.get('https://api.exchangerate.host/latest?BASE=PLN')
+            axios.get(`https://api.exchangerate.host/latest?BASE=PLN&rand=${randomNumber}`)
                 .then(currenciesApi => {
                     const currencies = Object.keys(currenciesApi.data.rates).map(key => {
                         return {
