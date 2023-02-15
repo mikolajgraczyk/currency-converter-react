@@ -17,7 +17,7 @@ This project was created in order to learn React and create-react-app. This curr
 
 ## Demo
 
-https://scudoo.github.io/currency-converter-react/
+https://mikolajgraczyk.github.io/currency-converter-react/
 
 In the project directory, you can run:
 
