@@ -13,7 +13,7 @@ This project was created in order to learn React and create-react-app. This curr
 - BEM
 - localStorage
 - fetch
-- stykedComponents
+- styledComponents
 
 ## Demo
 
