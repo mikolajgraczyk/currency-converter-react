@@ -21,6 +21,7 @@ export const Converter = styled.section`
     border-radius: 10px;
     display: grid;
     background-color: ${({ theme }) => theme.color.mineShaft};
+    backdrop-filter: blur(3px);
     color: white;
     transition: 0.3s;
 
@@ -49,6 +50,7 @@ export const Aside = styled.section`
     align-items: center;
     border-radius: 10px;
     background-color: ${({ theme }) => theme.color.mineShaft};
+    backdrop-filter: blur(3px);
     color: white;
     transition: 0.3s;
 
@@ -87,6 +89,7 @@ export const Aside = styled.section`
 
 export const ResultSection = styled.section`
     background-color: ${({ theme }) => theme.color.mineShaft};
+    backdrop-filter: blur(3px);
     color: white;
     border-radius: 10px;
     padding: 20px;

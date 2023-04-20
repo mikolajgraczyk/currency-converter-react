@@ -39,7 +39,6 @@ function App() {
     const { apiResponse } = useCurrenciesApiFetch();
 
     return (
-        <>
             <Container>
                 <Converter light={isLightTheme}>
                     {apiResponse.status === "loading" ?
@@ -71,7 +70,6 @@ function App() {
                     </ResultSection>
                 )}
             </Container>
-        </>
     );
 };
 

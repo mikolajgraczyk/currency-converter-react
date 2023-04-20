@@ -34,7 +34,6 @@ const Form = ({ calculateResult, theme, apiResponse }) => {
                             type="number"
                             step="0.01"
                             min={0.1}
-
                             onChange={({ target }) => setFirstInputValue(target.value)}
                             value={firstInputValue}
                             placeholder="Wpisz kwotę"
