@@ -18,6 +18,7 @@ export const Container = styled.div`
 export const Converter = styled.section`
     padding: 20px;
     align-content: center;
+    position: relative;
     border-radius: 10px;
     display: grid;
     background-color: ${({ theme }) => theme.color.mineShaft};
