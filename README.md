@@ -4,7 +4,6 @@
 This project was created in order to learn React and create-react-app. This currency-converter is a little bit more advanced than the previous one, as you can switch between different currencies on both sides. I also tried to maintain minimalism and aestheticism.
 
 ## Demo
-
 https://mikolajgraczyk.github.io/currency-converter-react/
 
 ![example](https://github.com/scudoo/currency-converter-react/blob/main/demo.gif?raw=true)
@@ -12,12 +11,16 @@ https://mikolajgraczyk.github.io/currency-converter-react/
 ## Technologies used in project
 - html
 - css
+- JavaScript(ES6+)
 - JSX
 - React
 - BEM
 - localStorage
 - fetch
 - styledComponents
+- date-fns
+- Redux (toolkit)
+- Redux-saga
 
 In the project directory, you can run:
 
