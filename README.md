@@ -18,9 +18,6 @@ https://mikolajgraczyk.github.io/currency-converter-react/
 - localStorage
 - fetch
 - styledComponents
-- date-fns
-- Redux (toolkit)
-- Redux-saga
 
 In the project directory, you can run:
 
